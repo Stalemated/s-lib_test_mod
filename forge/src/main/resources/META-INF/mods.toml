@@ -1,26 +1,26 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
-#issueTrackerURL = ""
-license = "Insert License Here"
+issueTrackerURL = "https://github.com/Stalemated/s-lib_test_mod/issues"
+license = "MIT"
 
 [[mods]]
-modId = "s-lib_test_mod"
+modId = "s_lib_test_mod"
 version = "${version}"
 displayName = "S-Lib Test Mod"
-authors = "Me!"
+authors = "Stalemated"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+A test mod for S-Lib's config module.
 '''
-#logoFile = ""
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/s-lib"
 
-[[dependencies.s-lib_test_mod]]
+[[dependencies.s_lib_test_mod]]
 modId = "forge"
 mandatory = true
 versionRange = "[47,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.s-lib_test_mod]]
+[[dependencies.s_lib_test_mod]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.20.1,)"
