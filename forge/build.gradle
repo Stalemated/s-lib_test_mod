@@ -2,12 +2,6 @@ plugins {
     id 'com.gradleup.shadow'
 }
 
-loom {
-    forge {
-        mixinConfig "s-lib_test_mod.mixins.json"
-    }
-}
-
 architectury {
     platformSetupLoomIde()
     forge()
