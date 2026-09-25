@@ -7,8 +7,8 @@ pluginManagement {
     }
 }
 
-rootProject.name = 's-lib_test_mod'
+rootProject.name = 's_lib_test_mod'
 
 include 'common'
 include 'fabric'
-include 'forge'
+include 'neoforge'

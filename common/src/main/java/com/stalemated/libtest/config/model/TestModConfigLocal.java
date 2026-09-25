@@ -91,10 +91,10 @@ public class TestModConfigLocal {
     public Pattern itemFilterRegex = Pattern.compile("minecraft:.*_pickaxe");
 
     @Comment("Direct Minecraft Item/Block identifier binding (stored as raw namespaced string)")
-    public Identifier favoriteWeapon = new Identifier("minecraft", "netherite_sword");
+    public Identifier favoriteWeapon = Identifier.of("minecraft", "netherite_sword");
 
     @Comment("Namespaced Identifier for sound events or custom registries")
-    public Identifier soundEffectId = new Identifier("minecraft", "entity.player.levelup");
+    public Identifier soundEffectId = Identifier.of("minecraft", "entity.player.levelup");
 
     @Comment("Standard UUID string serialization")
     public UUID playerProfileId = UUID.fromString("00000000-0000-0000-0000-000000000001");
@@ -122,15 +122,15 @@ public class TestModConfigLocal {
 
     @Comment("List of registered Minecraft Item/Block identifiers")
     public List<Identifier> itemBlacklist = new ArrayList<>(List.of(
-            new Identifier("minecraft", "tnt"),
-            new Identifier("minecraft", "lava_bucket")
+            Identifier.of("minecraft", "tnt"),
+            Identifier.of("minecraft", "lava_bucket")
     ));
 
     @Comment("List of dimension identifiers")
     public List<Identifier> allowedDimensions = new ArrayList<>(List.of(
-            new Identifier("minecraft", "overworld"),
-            new Identifier("minecraft", "the_nether"),
-            new Identifier("minecraft", "the_end")
+            Identifier.of("minecraft", "overworld"),
+            Identifier.of("minecraft", "the_nether"),
+            Identifier.of("minecraft", "the_end")
     ));
 
     @Comment("Key-value translation aliases map with native primitive string leaves")

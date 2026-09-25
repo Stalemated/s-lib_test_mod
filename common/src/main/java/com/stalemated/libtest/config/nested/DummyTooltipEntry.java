@@ -27,7 +27,7 @@ public class DummyTooltipEntry {
     public TooltipPosition position = TooltipPosition.BOTTOM;
 
     @Comment("Target item or tag identifier (e.g. minecraft:diamond_sword)")
-    public Identifier target = new Identifier("minecraft", "diamond_sword");
+    public Identifier target = Identifier.of("minecraft", "diamond_sword");
 
     @Comment("Render tooltip header text in bold font")
     public boolean bold = true;
