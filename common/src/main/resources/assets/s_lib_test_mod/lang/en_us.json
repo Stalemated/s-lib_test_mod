@@ -1,0 +1,97 @@
+{
+  "s_lib_test_mod.config_screen.title": "S-Lib Test Mod Config",
+  "s_lib_test_mod.config_screen.op_required": "Requires Singleplayer or Server Operator permission.",
+
+  "s_lib_test_mod.category.synced": "Synced Config",
+  "s_lib_test_mod.category.synced.desc": "Server-authoritative configuration managed by SyncedConfigManager. Options marked as OVERRIDE_CLIENT are synchronized from the server, while INFORM_SERVER transmits preferences, and NONE remains strictly client-local.",
+
+  "s_lib_test_mod.category.local": "Local Config",
+  "s_lib_test_mod.category.local.desc": "Pure local configuration managed by LocalConfigManager. Operates strictly on this client instance with zero network communication. All @Sync annotations are inert.",
+
+  "s_lib_test_mod.group.primitives": "1. Primitives & Numeric Constraints",
+  "s_lib_test_mod.group.primitives.desc": "Demonstrates basic primitive types, numeric boundaries (@Range annotations), and enums.",
+
+  "s_lib_test_mod.group.adapters": "2. Built-in Type Adapters",
+  "s_lib_test_mod.group.adapters.desc": "Demonstrates S-Lib type adapters for AWT Color, Minecraft TextColor, Pattern, Identifier, and UUID.",
+
+  "s_lib_test_mod.group.network_modes": "3. Network & Sync Modes",
+  "s_lib_test_mod.group.network_modes.desc": "Demonstrates different synchronization behaviors: OVERRIDE_CLIENT, INFORM_SERVER, and local-only NONE.",
+
+  "s_lib_test_mod.group.nested_category": "4. Hierarchical Nested Category",
+  "s_lib_test_mod.group.nested_category.desc": "Demonstrates multi-level nested POJOs via @Nest annotations.",
+
+  "s_lib_test_mod.option.testInt": "Test Integer",
+  "s_lib_test_mod.option.testInt.desc": "Integer option clamped within range [-100 to 1000].",
+
+  "s_lib_test_mod.option.testFloat": "Test Float",
+  "s_lib_test_mod.option.testFloat.desc": "Floating-point option clamped within range [0.0 to 5.0].",
+
+  "s_lib_test_mod.option.testDouble": "Test Double",
+  "s_lib_test_mod.option.testDouble.desc": "Double-precision option clamped within range [-50.0 to 50.0].",
+
+  "s_lib_test_mod.option.testBoolean": "Test Boolean Toggle",
+  "s_lib_test_mod.option.testBoolean.desc": "Basic boolean flag toggle.",
+
+  "s_lib_test_mod.option.testString": "Test Text String",
+  "s_lib_test_mod.option.testString.desc": "Standard string option.",
+
+  "s_lib_test_mod.option.testEnum": "Test Enum Option",
+  "s_lib_test_mod.option.testEnum.desc": "Enum choice option (OPTION_A, OPTION_B, OPTION_C).",
+
+  "s_lib_test_mod.option.primaryColor": "Primary Color",
+  "s_lib_test_mod.option.primaryColor.desc": "Standard opaque AWT Color (RGB).",
+
+  "s_lib_test_mod.option.translucentAccent": "Translucent Accent Color",
+  "s_lib_test_mod.option.translucentAccent.desc": "AWT Color with alpha channel transparency (RGBA).",
+
+  "s_lib_test_mod.option.chatHighlightColor": "Chat Highlight TextColor",
+  "s_lib_test_mod.option.chatHighlightColor.desc": "Named Minecraft TextColor representing chat accent color.",
+
+  "s_lib_test_mod.option.customRgbTextColor": "Custom RGB TextColor",
+  "s_lib_test_mod.option.customRgbTextColor.desc": "Minecraft TextColor represented in RGB hex.",
+
+  "s_lib_test_mod.option.itemFilterRegex": "Item Filter Regex",
+  "s_lib_test_mod.option.itemFilterRegex.desc": "Compiled regular expression pattern for filtering items.",
+
+  "s_lib_test_mod.option.favoriteWeapon": "Favorite Weapon",
+  "s_lib_test_mod.option.favoriteWeapon.desc": "Minecraft Item Identifier (with item & tag selector).",
+
+  "s_lib_test_mod.option.soundEffectId": "Sound Effect ID",
+  "s_lib_test_mod.option.soundEffectId.desc": "Namespaced identifier for sound event.",
+
+  "s_lib_test_mod.option.playerProfileId": "Player Profile UUID",
+  "s_lib_test_mod.option.playerProfileId.desc": "UUID representation string.",
+
+  "s_lib_test_mod.option.clientPreferences": "Client Preferences",
+  "s_lib_test_mod.option.clientPreferences.desc": "Client preference string sent to server via C2S packet (@Sync(INFORM_SERVER)).",
+
+  "s_lib_test_mod.option.serverInformedInt": "Server Informed Int",
+  "s_lib_test_mod.option.serverInformedInt.desc": "Client integer setting informed to server via C2S packet [0 to 500].",
+
+  "s_lib_test_mod.option.serverDrivenInt": "Server Driven Int (Inert Test)",
+  "s_lib_test_mod.option.serverDrivenInt.desc": "Marked @Sync(OVERRIDE_CLIENT) in local config to verify it remains inert and local.",
+
+  "s_lib_test_mod.option.localClientToggle": "Local Client Toggle",
+  "s_lib_test_mod.option.localClientToggle.desc": "Local-only toggle (@Sync(NONE)) retained strictly on this client.",
+
+  "s_lib_test_mod.option.localDouble": "Local Double",
+  "s_lib_test_mod.option.localDouble.desc": "Local-only double [0.5 to 1.5] retained strictly on this client.",
+
+  "s_lib_test_mod.option.visualSettings_enableOverlay": "Enable HUD Overlay",
+  "s_lib_test_mod.option.visualSettings_enableOverlay.desc": "Toggle HUD overlay rendering.",
+
+  "s_lib_test_mod.option.visualSettings_hudScale": "HUD Scale",
+  "s_lib_test_mod.option.visualSettings_hudScale.desc": "HUD scale multiplier [1 to 5].",
+
+  "s_lib_test_mod.option.visualSettings_overlayBackground": "Overlay Background Color",
+  "s_lib_test_mod.option.visualSettings_overlayBackground.desc": "Semi-transparent background color for the HUD overlay.",
+
+  "s_lib_test_mod.option.visualSettings_subSettings_animationSpeed": "Animation Speed",
+  "s_lib_test_mod.option.visualSettings_subSettings_animationSpeed.desc": "HUD element animation speed multiplier [0.1 to 10.0].",
+
+  "s_lib_test_mod.option.visualSettings_subSettings_themeName": "Visual Theme Name",
+  "s_lib_test_mod.option.visualSettings_subSettings_themeName.desc": "Name identifier of the visual theme profile.",
+
+  "s_lib_test_mod.option.visualSettings_subSettings_showDebugBounds": "Show Debug Bounds",
+  "s_lib_test_mod.option.visualSettings_subSettings_showDebugBounds.desc": "Render wireframe bounds around HUD widgets for debugging."
+}

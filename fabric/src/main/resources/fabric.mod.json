@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "com.stalemated.libtest.fabric.SLibTestModFabric"
+    ],
+    "modmenu": [
+      "com.stalemated.libtest.fabric.compat.modmenu.ModMenuIntegration"
     ]
   },
   "depends": {

@@ -35,6 +35,8 @@ dependencies {
 
     // YACL
     modRuntimeOnly "dev.isxander:yet-another-config-lib:${rootProject.yacl_version}-fabric"
+    // ModMenu
+    modImplementation "com.terraformersmc:modmenu:${rootProject.modmenu_version}"
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')

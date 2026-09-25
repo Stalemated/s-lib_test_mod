@@ -53,10 +53,10 @@ public class TestConfigManager {
         // SyncedConfigManager Lifecycle Listeners
         // region
 
-        // Triggered on the CLIENT when a server sync packet (S2C) is received and applied.
+        // Triggered on the CLIENT whenever the active config is synchronized or updated (load, S2C packet, disconnect, or local edit).
         MANAGER.onConfigSynced(config -> LOGGER.info(
-                "Config received from server via S2C! testInt: {}, testFloat: {}",
-                config.testInt, config.testFloat
+                "Active config updated (State: {})! testInt: {}, testFloat: {}",
+                MANAGER.getConnectionState(), config.testInt, config.testFloat
         ));
 
         // Triggered on the SERVER when a connected player sends client-side informed preferences (C2S).
