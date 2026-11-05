@@ -10,7 +10,10 @@ import com.stalemated.libtest.config.TestModConfigs;
 import com.stalemated.libtest.config.model.TestModConfig;
 import com.stalemated.libtest.config.model.TestModConfigLocal;
 import com.stalemated.libtest.config.nested.DummyEnchantmentRules;
+import dev.isxander.yacl3.api.ButtonOption;
+import dev.isxander.yacl3.api.OptionDescription;
 import dev.isxander.yacl3.api.controller.StringControllerBuilder;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -19,6 +22,7 @@ import org.joml.Vector3f;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -65,8 +69,31 @@ public final class TestModConfigScreen {
                 .category(synced, "visual_settings", category -> category.nested("visualSettings"))
                 .category(synced, "enchantment_allowed", category -> category
                         .nestedMapLists("enchantmentRules", allowedEnchantments(enchantmentIds)))
-                .category(synced, "tooltip_entries", category -> category.nestedList("tooltipEntries"))
+                .category(synced, "tooltip_entries", category -> category
+                        .group("tooltip_tools", group -> group
+                                .option(button("edit_first_entry", !synced.get().tooltipEntries.isEmpty(),
+                                        screen -> TooltipEntryScreen.edit(screen, synced)))
+                                .option(button("add_entry", true, screen -> TooltipEntryScreen.add(screen, synced))))
+                        .nestedList("tooltipEntries"))
                 .category(local, "local", YaclCategoryBuilder::autoGenerate);
+    }
+
+    private static ButtonOption button(String key, boolean available, UnaryOperator<Screen> opened) {
+        return ButtonOption.createBuilder()
+                .name(Component.translatable("s_lib_test_mod.option." + key))
+                .description(OptionDescription.of(Component.translatable("s_lib_test_mod.option." + key + ".desc")))
+                .available(available)
+                .action((screen, option) -> show(opened.apply(screen)))
+                .text(Component.empty())
+                .build();
+    }
+
+    private static void show(Screen screen) {
+        //? if <26.2 {
+        Minecraft.getInstance().setScreen(screen);
+        //?} else {
+        /*Minecraft.getInstance().gui.setScreen(screen);
+        *///?}
     }
 
     private static NestListBinding<DummyEnchantmentRules> allowedEnchantments(Supplier<Collection<String>> enchantmentIds) {
