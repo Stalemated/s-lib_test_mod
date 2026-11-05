@@ -38,6 +38,7 @@ import java.util.regex.Pattern;
 @Sync(SyncMode.OVERRIDE_CLIENT)
 public class TestModConfig {
 
+    @Title("primitives")
     @Comment("""
             ====================================================================================================
             1. Primitives & Numeric Constraints
@@ -48,6 +49,10 @@ public class TestModConfig {
             """)
     @RangeInt(min = -100, max = 1000)
     public int testInt = 50;
+
+    @Comment("Long integer with range bounds [-10000 to 100000]")
+    @RangeLong(min = -10000L, max = 100000L, step = 500L)
+    public long testLong = 25000L;
 
     @Comment("Floating-point value with range bounds [0.0 to 5.0]")
     @RangeFloat(min = 0.0f, max = 5.0f)
@@ -70,6 +75,7 @@ public class TestModConfig {
     @Ignore
     public String ignoredField = "This field is ignored by S-Lib";
 
+    @Title("adapters")
     @Comment("""
             ====================================================================================================
             2. Built-in Type Adapters
@@ -92,7 +98,8 @@ public class TestModConfig {
     @Comment("Compiled regex Pattern for item/entity filtering")
     public Pattern itemFilterRegex = Pattern.compile("minecraft:.*_pickaxe");
 
-    @Comment("Direct Minecraft Item/Block identifier binding (stored as raw namespaced string)")
+    @Comment("Direct Minecraft Item/Block identifier binding (uses Item dropdown without #tags)")
+    @ItemDropdown(allowTags = false)
     public Identifier favoriteWeapon = new Identifier("minecraft", "netherite_sword");
 
     @Comment("Namespaced Identifier for sound events or custom registries")
@@ -101,6 +108,7 @@ public class TestModConfig {
     @Comment("Standard UUID string serialization")
     public UUID playerProfileId = UUID.fromString("00000000-0000-0000-0000-000000000001");
 
+    @Title("collections")
     @Comment("""
             ====================================================================================================
             3. Native Leaf Collections (No @Nest Needed)
@@ -122,10 +130,12 @@ public class TestModConfig {
             Objects.requireNonNull(TextColor.fromFormatting(Formatting.RED))
     ));
 
-    @Comment("List of registered Minecraft Item/Block identifiers")
-    public List<Identifier> itemBlacklist = new ArrayList<>(List.of(
-            new Identifier("minecraft", "tnt"),
-            new Identifier("minecraft", "lava_bucket")
+    @Comment("List of registered Minecraft Item or #Tag strings (supports items, #tags, and * wildcards)")
+    @ItemDropdown()
+    public List<String> itemBlacklist = new ArrayList<>(List.of(
+            "minecraft:tnt",
+            "minecraft:lava_bucket",
+            "#minecraft:logs"
     ));
 
     @Comment("List of dimension identifiers")
@@ -141,6 +151,7 @@ public class TestModConfig {
             "gui.dismiss", "Decline"
     ));
 
+    @Title("network_modes")
     @Comment("""
             ====================================================================================================
             4. Network & Sync Modes
@@ -166,6 +177,7 @@ public class TestModConfig {
     @RangeDouble(min = 0.5, max = 1.5)
     public double localDouble = 0.8;
 
+    @Title("enchantment_rules")
     @Comment("""
             ====================================================================================================
             5. Unrestricted Enchanting Simulation (Map with Nested POJOs via @Nest)
@@ -188,6 +200,7 @@ public class TestModConfig {
             )
     ));
 
+    @Title("tooltip_entries")
     @Comment("""
             ====================================================================================================
             6. Custom Tooltip API Simulation (List with Nested POJOs via @Nest)
@@ -200,6 +213,7 @@ public class TestModConfig {
             new DummyTooltipEntry()
     ));
 
+    @Title("visualSettings")
     @Comment("""
             ====================================================================================================
             7. Hierarchical Nested Categories (@Nest POJOs)

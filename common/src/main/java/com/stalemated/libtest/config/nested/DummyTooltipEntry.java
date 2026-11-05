@@ -1,10 +1,10 @@
 package com.stalemated.libtest.config.nested;
 
 import com.stalemated.lib.config.annotation.Comment;
+import com.stalemated.lib.config.annotation.ItemDropdown;
 import com.stalemated.lib.config.annotation.RangeInt;
 import net.minecraft.text.TextColor;
 import net.minecraft.util.Colors;
-import net.minecraft.util.Identifier;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.UUID;
 
 /**
  * Data model simulating a custom tooltip entry (inspired by Custom Tooltip API).
- * Demonstrates a complex nested POJO containing enums, identifiers, UUIDs, colors, text colors, and numeric bounds.
+ * Demonstrates a complex nested POJO containing enums, item/tag strings, UUIDs, colors, text colors, and numeric bounds.
  */
 public class DummyTooltipEntry {
 
@@ -26,8 +26,9 @@ public class DummyTooltipEntry {
     @Comment("Positioning mode of the tooltip relative to vanilla lines")
     public TooltipPosition position = TooltipPosition.BOTTOM;
 
-    @Comment("Target item or tag identifier (e.g. minecraft:diamond_sword)")
-    public Identifier target = new Identifier("minecraft", "diamond_sword");
+    @Comment("Target item or tag identifier (e.g. minecraft:diamond_sword or #minecraft:swords)")
+    @ItemDropdown()
+    public String target = "minecraft:diamond_sword";
 
     @Comment("Render tooltip header text in bold font")
     public boolean bold = true;

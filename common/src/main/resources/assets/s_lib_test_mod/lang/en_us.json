@@ -8,20 +8,35 @@
   "s_lib_test_mod.category.local": "Local Config",
   "s_lib_test_mod.category.local.desc": "Pure local configuration managed by LocalConfigManager. Operates strictly on this client instance with zero network communication. All @Sync annotations are inert.",
 
+  "s_lib_test_mod.title.primitives": "§c§l1. Primitives & Numeric Constraints",
+  "s_lib_test_mod.title.primitives.desc": "Demonstrates basic primitive types, numeric boundaries (@Range annotations), and enums.",
   "s_lib_test_mod.group.primitives": "1. Primitives & Numeric Constraints",
   "s_lib_test_mod.group.primitives.desc": "Demonstrates basic primitive types, numeric boundaries (@Range annotations), and enums.",
 
+  "s_lib_test_mod.title.adapters": "§6§l2. Built-in Type Adapters",
+  "s_lib_test_mod.title.adapters.desc": "Demonstrates S-Lib type adapters for AWT Color, Minecraft TextColor, Pattern, Identifier, and UUID.",
   "s_lib_test_mod.group.adapters": "2. Built-in Type Adapters",
   "s_lib_test_mod.group.adapters.desc": "Demonstrates S-Lib type adapters for AWT Color, Minecraft TextColor, Pattern, Identifier, and UUID.",
 
-  "s_lib_test_mod.group.network_modes": "3. Network & Sync Modes",
+  "s_lib_test_mod.title.network_modes": "§a§l4. Network & Sync Modes",
+  "s_lib_test_mod.title.network_modes.desc": "Demonstrates different synchronization behaviors: OVERRIDE_CLIENT, INFORM_SERVER, and local-only NONE.",
+  "s_lib_test_mod.group.network_modes": "4. Network & Sync Modes",
   "s_lib_test_mod.group.network_modes.desc": "Demonstrates different synchronization behaviors: OVERRIDE_CLIENT, INFORM_SERVER, and local-only NONE.",
 
-  "s_lib_test_mod.group.nested_category": "4. Hierarchical Nested Category",
-  "s_lib_test_mod.group.nested_category.desc": "Demonstrates multi-level nested POJOs via @Nest annotations.",
+  "s_lib_test_mod.title.visualSettings": "§5§l7. Visual Settings (Hierarchical Nested Category)",
+  "s_lib_test_mod.title.visualSettings.desc": "Demonstrates multi-level nested POJOs via @Nest annotations.",
+  "s_lib_test_mod.group.visualSettings": "7. Visual Settings (Hierarchical Nested Category)",
+  "s_lib_test_mod.group.visualSettings.desc": "Demonstrates multi-level nested POJOs via @Nest annotations.",
+
+  "s_lib_test_mod.title.collections": "§e§l3. Native Leaf Collections",
+  "s_lib_test_mod.title.enchantment_rules": "§9§l5. Unrestricted Enchanting Rules (@Nest Map)",
+  "s_lib_test_mod.title.tooltip_entries": "§d§l6. Custom Tooltip Entries (@Nest List)",
 
   "s_lib_test_mod.option.testInt": "Test Integer",
   "s_lib_test_mod.option.testInt.desc": "Integer option clamped within range [-100 to 1000].",
+
+  "s_lib_test_mod.option.testLong": "Test Long",
+  "s_lib_test_mod.option.testLong.desc": "Long integer option clamped within range [-10000 to 100000] with step 500.",
 
   "s_lib_test_mod.option.testFloat": "Test Float",
   "s_lib_test_mod.option.testFloat.desc": "Floating-point option clamped within range [0.0 to 5.0].",
@@ -86,6 +101,9 @@
   "s_lib_test_mod.option.visualSettings_overlayBackground": "Overlay Background Color",
   "s_lib_test_mod.option.visualSettings_overlayBackground.desc": "Semi-transparent background color for the HUD overlay.",
 
+  "s_lib_test_mod.option.visualSettings_hudTextColor": "HUD Text Color",
+  "s_lib_test_mod.option.visualSettings_hudTextColor.desc": "Default text color for HUD widgets.",
+
   "s_lib_test_mod.option.visualSettings_subSettings_animationSpeed": "Animation Speed",
   "s_lib_test_mod.option.visualSettings_subSettings_animationSpeed.desc": "HUD element animation speed multiplier [0.1 to 10.0].",
 
@@ -93,5 +111,71 @@
   "s_lib_test_mod.option.visualSettings_subSettings_themeName.desc": "Name identifier of the visual theme profile.",
 
   "s_lib_test_mod.option.visualSettings_subSettings_showDebugBounds": "Show Debug Bounds",
-  "s_lib_test_mod.option.visualSettings_subSettings_showDebugBounds.desc": "Render wireframe bounds around HUD widgets for debugging."
+  "s_lib_test_mod.option.visualSettings_subSettings_showDebugBounds.desc": "Render wireframe bounds around HUD widgets for debugging.",
+
+  "s_lib_test_mod.option.colorPalette": "Color Palette",
+  "s_lib_test_mod.option.colorPalette.desc": "List of AWT Color entries.",
+
+  "s_lib_test_mod.option.statusIndicators": "Status Indicators",
+  "s_lib_test_mod.option.statusIndicators.desc": "List of Minecraft TextColors.",
+
+  "s_lib_test_mod.option.itemBlacklist": "Item Blacklist",
+  "s_lib_test_mod.option.itemBlacklist.desc": "List of blacklisted item Identifiers.",
+
+  "s_lib_test_mod.option.allowedDimensions": "Allowed Dimensions",
+  "s_lib_test_mod.option.allowedDimensions.desc": "List of allowed dimension Identifiers.",
+
+  "s_lib_test_mod.option.translationAliases": "Translation Aliases",
+  "s_lib_test_mod.option.translationAliases.desc": "Key-value map of string aliases formatted as 'key: value'.",
+
+  "s_lib_test_mod.option.enchantmentRules.allowed": "Allowed Enchantments",
+  "s_lib_test_mod.option.enchantmentRules.allowed.desc": "List of enchantment IDs allowed to bypass normal restrictions (comma-separated).",
+
+  "s_lib_test_mod.option.enchantmentRules.restricted": "Restricted Enchantments",
+  "s_lib_test_mod.option.enchantmentRules.restricted.desc": "List of enchantment IDs explicitly restricted or forced incompatible (comma-separated).",
+
+  "s_lib_test_mod.option.enchantmentRules.maxLevelMultiplier": "Max Level Multiplier",
+  "s_lib_test_mod.option.enchantmentRules.maxLevelMultiplier.desc": "Level multiplier limit for this enchantment.",
+
+  "s_lib_test_mod.option.enchantmentRules.bypassVanillaIncompatibilities": "Bypass Vanilla Incompatibilities",
+  "s_lib_test_mod.option.enchantmentRules.bypassVanillaIncompatibilities.desc": "Whether this enchantment bypasses vanilla incompatibility checks.",
+
+  "s_lib_test_mod.category.enchantment_allowed": "Enchantment Allowed Lists",
+  "s_lib_test_mod.category.enchantment_allowed.desc": "Dedicated tab for projected allowed enchantment IDs via categoryFromNestMapList().",
+  "s_lib_test_mod.option.enchantmentRules.enchantment_allowed.desc": "Allowed enchantment IDs for this enchantment.",
+
+  "s_lib_test_mod.category.autogen": "Auto-Generated Showcase",
+  "s_lib_test_mod.category.autogen.desc": "Fully automatic category generated via .autoGenerate() directly from the config schema.",
+
+  "s_lib_test_mod.category.visual_settings": "Visual Settings",
+  "s_lib_test_mod.category.visual_settings.desc": "Dedicated tab for nested category visualSettings projected via categoryFromNest().",
+
+  "s_lib_test_mod.category.enchantment_rules": "Enchantment Rules",
+  "s_lib_test_mod.category.enchantment_rules.desc": "Dedicated tab for nested POJO map enchantmentRules projected via categoryFromNestMap().",
+
+  "s_lib_test_mod.category.tooltip_entries": "Custom Tooltips",
+  "s_lib_test_mod.category.tooltip_entries.desc": "Dedicated tab for nested POJO list tooltipEntries projected via categoryFromNestList().",
+
+  "s_lib_test_mod.option.tooltipEntries": "Custom Tooltips",
+  "s_lib_test_mod.option.tooltipEntries.desc": "List of custom tooltip entries.",
+  "s_lib_test_mod.option.tooltipEntries.comment": "Comment / Label",
+  "s_lib_test_mod.option.tooltipEntries.comment.desc": "Descriptive comment or label for this custom tooltip.",
+  "s_lib_test_mod.option.tooltipEntries.text": "Tooltip Text Lines",
+  "s_lib_test_mod.option.tooltipEntries.text.desc": "Comma-separated lines of text rendered inside the custom tooltip.",
+  "s_lib_test_mod.option.tooltipEntries.position": "Tooltip Position",
+  "s_lib_test_mod.option.tooltipEntries.position.desc": "Positioning mode of the tooltip relative to vanilla lines.",
+  "s_lib_test_mod.option.tooltipEntries.target": "Target Item Identifier",
+  "s_lib_test_mod.option.tooltipEntries.target.desc": "Target item or tag identifier to attach this custom tooltip to.",
+  "s_lib_test_mod.option.tooltipEntries.bold": "Bold Header Font",
+  "s_lib_test_mod.option.tooltipEntries.bold.desc": "Render the tooltip header line in bold font.",
+  "s_lib_test_mod.option.tooltipEntries.italic": "Italic Font",
+  "s_lib_test_mod.option.tooltipEntries.italic.desc": "Render the tooltip text lines in italic font.",
+  "s_lib_test_mod.option.tooltipEntries.backgroundOpacity": "Background Box Opacity",
+  "s_lib_test_mod.option.tooltipEntries.backgroundOpacity.desc": "Opacity of the tooltip background box [0 to 255].",
+  "s_lib_test_mod.option.tooltipEntries.uuid": "Entry UUID",
+  "s_lib_test_mod.option.tooltipEntries.uuid.desc": "Unique persistent identifier for this tooltip entry.",
+  "s_lib_test_mod.option.tooltipEntries.color": "Border Accent Color",
+  "s_lib_test_mod.option.tooltipEntries.color.desc": "Border accent color formatted as hex/RGB.",
+  "s_lib_test_mod.option.tooltipEntries.textColors": "Gradient Accent Colors",
+  "s_lib_test_mod.option.tooltipEntries.textColors.desc": "Comma-separated list of Minecraft text colors for gradient accents."
 }
