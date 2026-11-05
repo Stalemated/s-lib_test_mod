@@ -1,6 +1,6 @@
 package com.stalemated.libtest;
 
-import com.stalemated.libtest.config.SLibTestModConfigs;
+import com.stalemated.libtest.config.TestModConfigs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +12,6 @@ public final class SLibTestMod {
     }
 
     public static void init() {
-        SLibTestModConfigs.register();
+        TestModConfigs.register();
     }
 }
