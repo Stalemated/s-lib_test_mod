@@ -30,6 +30,10 @@ public final class TestModTooltips {
     public static void reload(TestModConfig config) {
         List<TooltipRule> loaded = new ArrayList<>();
         for (DummyTooltipEntry entry : config.tooltipEntries) {
+            if (entry.position == null) {
+                SLibTestMod.LOGGER.warn("Skipping tooltip entry '{}': position must be one of {}, got none", entry.comment, INSERTIONS.keySet());
+                continue;
+            }
             Optional<TargetMatcher> matcher = TargetMatcherFactory.tryCreate(entry.target);
             if (matcher.isEmpty()) {
                 SLibTestMod.LOGGER.warn("Skipping tooltip entry '{}': '{}' is not a valid target", entry.comment, entry.target);
