@@ -1,0 +1,8 @@
+{
+    "s_lib_test_mod.config.title": "S-Lib Test Mod",
+    "s_lib_test_mod.category.general": "General",
+    "s_lib_test_mod.option.enabled": "Enabled",
+    "s_lib_test_mod.option.enabled.desc": "Turns the mod on or off.",
+    "s_lib_test_mod.option.repeats": "Repeats",
+    "s_lib_test_mod.option.repeats.desc": "How many times the effect repeats."
+}
