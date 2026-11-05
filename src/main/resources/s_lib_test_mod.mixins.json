@@ -1,12 +1,14 @@
 {
     "required": true,
     "package": "com.stalemated.libtest.mixin",
+    "plugin": "com.stalemated.lib.mixin.ConditionalMixinPlugin",
     "compatibilityLevel": "${mixin_compatibility}",
     "minVersion": "0.8",
     "mixins": [
         "MinecraftServerMixin"
     ],
     "client": [
+        "client.TitleScreenMixin"
     ],
     "injectors": {
         "defaultRequire": 1
