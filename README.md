@@ -143,7 +143,7 @@ Each test names its nodes, the steps, and the expected result. "Log" is the game
   - Add Entry opens a new default entry. Saving it adds a third entry to `tooltipEntries`.
   - Change Test Integer in Synced Config without saving. Open Edit First Entry, change Comment / Label, and save there. Go back and save the main screen. Both changes are in `config.json5`: the main screen only writes the options that changed in it, so it does not undo the entry.
   - Open Edit First Entry, change Comment / Label, and save there. Back on the main screen, edit the second entry inline in Custom Tooltips and save. Both changes are in `config.json5`: the main screen only writes the entries it changed. Do the same with Add Entry: the added entry stays. This needs an S-Lib build with the list merge in `ConfigSession` in your mavenLocal.
-  - Close the game, set `tooltipEntries` to `[]` in, and start it again. Edit First Entry is greyed out, since the entry list has no remove button. Delete `config.json5` afterward to get the default entries back for the next test.
+  - Close the game, set `tooltipEntries` to `[]` in `config.json5`, and start it again. Edit First Entry is greyed out, since the entry list has no remove button. Delete `config.json5` afterward to get the default entries back for the next test.
 
 ### 11. Tooltips
 
