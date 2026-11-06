@@ -74,7 +74,7 @@ Each test names its nodes, the steps, and the expected result. "Log" is the game
 
 - **Nodes:** all 6.
 - **Steps:** open Mod Menu (Fabric) or the Mods list (Forge, NeoForge) from the title screen and open the config of S-Lib Test Mod.
-- **Expected:** "S-Lib Test Mod Config" opens with the 5 tabs of the table above.
+- **Expected:** "S-Lib Test Mod Config" opens with the five tabs of the table above. On `1.21.1-fabric` and `1.21.1-neoforge`, scrolling the screen with the mouse wheel leaves no `Legacy list scrolled` line in the log.
 
 ### 3. Without YACL
 
@@ -96,7 +96,7 @@ Each test names its nodes, the steps, and the expected result. "Log" is the game
 
 - **Nodes:** `1.20.1-fabric`.
 - **Steps and expected:**
-  - Turn off Test Boolean Toggle in Synced Config, without saving, and open Visual Settings. Enable HUD Overlay and HUD Scale are greyed out.
+  - Turn off Test Boolean Toggle in Synced Config without saving and open Visual Settings. Enable HUD Overlay and HUD Scale are greyed out.
   - Turn Test Boolean Toggle back on and turn off Enable HUD Overlay. HUD Scale is greyed out. Turn Enable HUD Overlay on again and Test Boolean Toggle off: HUD Scale stays greyed out, even though Enable HUD Overlay is on.
   - Test Enum Option starts at Option B, so Test Double is greyed out. Pick Option A or Option C: Test Double is available at once. Option B greys it out again.
   - With Test Boolean Toggle and Enable HUD Overlay on, change HUD Scale, then turn off Enable HUD Overlay before saving. HUD Scale goes back to its saved value. Save and reopen the screen: HUD Scale has the old value, and turning Enable HUD Overlay on does not bring the edit back.
@@ -107,6 +107,7 @@ Each test names its nodes, the steps, and the expected result. "Log" is the game
 - **Steps:** use Favorite Weapon (group "2. Built-in Type Adapters"), Item Blacklist (Synced Config) and Target (Tooltip Entry screen) with the mouse and with Tab.
 - **Expected:**
   - Without focus, an item shows its name and icon. `#minecraft:logs` in Item Blacklist shows in gold with no icon.
+  - On `26.3-fabric`, opened from the title screen before entering any world, items show their name without an icon. Enter a world and reopen the screen: the icons are there.
   - A click opens the suggestion list and selects the text. Tab only selects the text; typing or Enter opens the list.
   - In the list, Up, Down, and Tab move, and Enter or a click outside picks the entry.
   - Favorite Weapon suggests items only, no `#` tags.
@@ -132,7 +133,7 @@ Each test names its nodes, the steps, and the expected result. "Log" is the game
 
 - **Nodes:** `1.20.1-fabric`, `1.21.1-fabric` and `26.3-fabric` in a world; `1.21.1-neoforge` and `26.3-neoforge` from the title screen.
 - **Steps:** open the tab inside a world (Mods button of the pause menu), and on the other nodes from the title screen.
-- **Expected:** inside a world there is one "Allowed with <id>" list for each enchantment of the game, each one once. From the title screen in 1.21.1 and 26.3 the tab opens with no error and shows only `minecraft:mending` and `minecraft:sharpness`. In 1.20.1 it shows every enchantment from the title screen too.
+- **Expected:** inside a world there is one "Allowed with <id>" list for each enchantment of the game, each one once. From the title screen in 1.21.1 and 26.3, the tab opens with no error and shows only `minecraft:mending` and `minecraft:sharpness`. In 1.20.1 it shows every enchantment from the title screen too.
 
 ### 10. Tooltip Entry screen
 
@@ -141,8 +142,8 @@ Each test names its nodes, the steps, and the expected result. "Log" is the game
   - In Custom Tooltips, Edit First Entry opens "Tooltip Entry" with Comment / Label "Custom Legendary Item Tooltip". Each change logs `Previewing tooltip entry '<comment>'`. Save: the change is in `config.json5`, and in the entry list once the config screen is opened again.
   - Add Entry opens a new default entry. Saving it adds a third entry to `tooltipEntries`.
   - Change Test Integer in Synced Config without saving. Open Edit First Entry, change Comment / Label, and save there. Go back and save the main screen. Both changes are in `config.json5`: the main screen only writes the options that changed in it, so it does not undo the entry.
-  - Open Edit First Entry, change Comment / Label and save there. Back in the main screen, edit the second entry inline in Custom Tooltips and save. Both changes are in `config.json5`: the main screen only writes the entries it changed. Do the same with Add Entry: the added entry stays. This needs an S-Lib build with the list merge in `ConfigSession` in your mavenLocal.
-  - Close the game, set `tooltipEntries` to `[]` in `config.json5` and start it again. Edit First Entry is greyed out, since the entry list has no remove button. Delete `config.json5` afterwards to get the default entries back for the next test.
+  - Open Edit First Entry, change Comment / Label, and save there. Back on the main screen, edit the second entry inline in Custom Tooltips and save. Both changes are in `config.json5`: the main screen only writes the entries it changed. Do the same with Add Entry: the added entry stays. This needs an S-Lib build with the list merge in `ConfigSession` in your mavenLocal.
+  - Close the game, set `tooltipEntries` to `[]` in, and start it again. Edit First Entry is greyed out, since the entry list has no remove button. Delete `config.json5` afterward to get the default entries back for the next test.
 
 ### 11. Tooltips
 
