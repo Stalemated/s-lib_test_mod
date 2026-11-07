@@ -10,7 +10,7 @@ public final class SLibTestModClient {
     }
 
     public static void init() {
-        SLibConfigScreens.register(SLibTestMod.MOD_ID, TestModConfigScreen::create);
+        SLibConfigScreens.register(SLibTestMod.MOD_ID, () -> TestModConfigScreen::create);
         TestModTooltips.reload(TestModConfigs.CONFIG.get());
         TestModConfigs.CONFIG.onChange(TestModTooltips::reload);
     }
