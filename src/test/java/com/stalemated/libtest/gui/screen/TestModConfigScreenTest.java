@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import java.nio.file.Path;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 class TestModConfigScreenTest {
     @Test
     void theConfigScreenBuilds() throws Exception {
@@ -30,5 +32,13 @@ class TestModConfigScreenTest {
                         new DummyTooltipEntry()),
                 Path.of(TestModConfigScreenTest.class.getResource("/assets/s_lib_test_mod/lang/en_us.json").toURI())
         );
+    }
+
+    @Test
+    void editFirstEntryWithNoSavedEntriesStaysOnTheParentScreen() {
+        TestModConfig config = new TestModConfig();
+        config.tooltipEntries.clear();
+
+        assertNull(TooltipEntryScreen.edit(null, new InMemoryConfigManager<>(config, TestModConfig::new, null)));
     }
 }

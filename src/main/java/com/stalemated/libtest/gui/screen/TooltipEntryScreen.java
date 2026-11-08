@@ -9,12 +9,19 @@ import com.stalemated.libtest.config.nested.DummyTooltipEntry;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
+import java.util.List;
+
 public final class TooltipEntryScreen {
     private TooltipEntryScreen() {
     }
 
     public static Screen edit(Screen parent, ConfigManager<TestModConfig> config) {
-        return open(parent, config.editListElement(c -> c.tooltipEntries, config.get().tooltipEntries.get(0), DummyTooltipEntry::new));
+        List<DummyTooltipEntry> entries = config.get().tooltipEntries;
+        if (entries.isEmpty()) {
+            SLibTestMod.LOGGER.warn("Edit First Entry needs a saved tooltip entry, got 0 entries");
+            return parent;
+        }
+        return open(parent, config.editListElement(c -> c.tooltipEntries, entries.get(0), DummyTooltipEntry::new));
     }
 
     public static Screen add(Screen parent, ConfigManager<TestModConfig> config) {
