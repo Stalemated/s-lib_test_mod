@@ -205,13 +205,13 @@ public class TestModConfig {
     @Nest
     public Map<String, DummyEnchantmentRules> enchantmentRules = new TreeMap<>(Map.of(
             "minecraft:mending", new DummyEnchantmentRules(
-                    List.of("minecraft:infinity"),
-                    List.of("minecraft:unbreaking"),
+                    List.of(ResourceIds.of("minecraft", "infinity")),
+                    List.of(ResourceIds.of("minecraft", "unbreaking")),
                     1,
                     true
             ),
             "minecraft:sharpness", new DummyEnchantmentRules(
-                    List.of("minecraft:smite", "minecraft:bane_of_arthropods"),
+                    List.of(ResourceIds.of("minecraft", "smite"), ResourceIds.of("minecraft", "bane_of_arthropods")),
                     List.of(),
                     2,
                     false

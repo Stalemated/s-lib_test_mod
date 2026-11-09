@@ -17,6 +17,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
+import net.minecraft.resources.ResourceLocation;
 import org.joml.Vector3f;
 
 import java.util.Collection;
@@ -97,9 +98,9 @@ public final class TestModConfigScreen {
     }
 
     private static NestListBinding<DummyEnchantmentRules> allowedEnchantments(Supplier<Collection<String>> enchantmentIds) {
-        return NestListBinding.of(
+        return NestListBinding.of(ResourceLocation.class,
                         (DummyEnchantmentRules rules) -> rules.allowed,
-                        (DummyEnchantmentRules rules, List<String> allowed) -> rules.allowed = allowed)
+                        (DummyEnchantmentRules rules, List<ResourceLocation> allowed) -> rules.allowed = allowed)
                 .withKeys(enchantmentIds, DummyEnchantmentRules::new)
                 .withEntryNames(id -> Component.translatable("s_lib_test_mod.option.enchantment_allowed.entry", id))
                 .withDescription(Component.translatable("s_lib_test_mod.option.enchantment_allowed.desc"));
