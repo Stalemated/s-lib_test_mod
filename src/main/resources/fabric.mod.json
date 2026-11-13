@@ -16,10 +16,10 @@
     "environment": "${environment}",
     "entrypoints": {
         "main": [
-            "com.stalemated.libtest.loader.SLibTestModFabric"
+            "com.stalemated.libtest.SLibTestMod"
         ],
         "client": [
-            "com.stalemated.libtest.loader.SLibTestModFabricClient"
+            "com.stalemated.libtest.SLibTestModClient"
         ]
     },
     "mixins": [

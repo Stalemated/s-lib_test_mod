@@ -6,7 +6,7 @@ import com.stalemated.lib.compat.yacl.builder.YaclScreenBuilder;
 import com.stalemated.lib.compat.yacl.registry.YaclControllerRegistry;
 import com.stalemated.lib.config.ConfigManager;
 import com.stalemated.libtest.SLibTestMod;
-import com.stalemated.libtest.config.TestModConfigs;
+import com.stalemated.libtest.config.TestModConfigRegistry;
 import com.stalemated.libtest.config.model.TestModConfig;
 import com.stalemated.libtest.config.model.TestModConfigLocal;
 import com.stalemated.libtest.config.nested.DummyEnchantmentRules;
@@ -36,7 +36,7 @@ public final class TestModConfigScreen {
     }
 
     public static Screen create(Screen parent) {
-        return builder(parent, TestModConfigs.CONFIG, TestModConfigs.LOCAL, EnchantmentIds::current).generateScreen();
+        return builder(parent, TestModConfigRegistry.CONFIG, TestModConfigRegistry.LOCAL, EnchantmentIds::current).generateScreen();
     }
 
     static YaclScreenBuilder builder(

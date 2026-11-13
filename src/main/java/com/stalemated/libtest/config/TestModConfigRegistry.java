@@ -9,7 +9,7 @@ import com.stalemated.libtest.SLibTestMod;
 import com.stalemated.libtest.config.model.TestModConfig;
 import com.stalemated.libtest.config.model.TestModConfigLocal;
 
-public final class TestModConfigs {
+public final class TestModConfigRegistry {
     public static final SyncedConfigManager<TestModConfig> CONFIG = SLibConfig.synced(SLibTestMod.MOD_ID, TestModConfig.class)
             .configPath(PathUtils.buildPath("s-lib_test_mod", "config.json5"))
             .permissionCheck(ServerConfigPermissions.OP_ONLY)
@@ -29,7 +29,7 @@ public final class TestModConfigs {
                     failure.file(), failure.reason(), failure.rejectedValues()))
             .build();
 
-    private TestModConfigs() {
+    private TestModConfigRegistry() {
     }
 
     public static void register() {
