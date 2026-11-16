@@ -2,6 +2,7 @@ package com.stalemated.libtest;
 
 import com.stalemated.lib.client.SLibConfigScreens;
 import com.stalemated.libtest.client.TestModTooltips;
+import com.stalemated.libtest.client.WeaponStatsTooltip;
 import com.stalemated.libtest.config.TestModConfigRegistry;
 import com.stalemated.libtest.gui.screen.TestModConfigScreen;
 
@@ -35,12 +36,16 @@ implements ClientModInitializer
         TestModConfigRegistry.CONFIG.onChange(TestModTooltips::reload);
         //? if fabric && <1.21 {
         ItemTooltipCallback.EVENT.register((stack, flag, lines) -> TestModTooltips.append(stack, lines));
+        ItemTooltipCallback.EVENT.register((stack, flag, lines) -> WeaponStatsTooltip.append(stack, lines));
         //?} elif fabric {
         /*ItemTooltipCallback.EVENT.register((stack, context, flag, lines) -> TestModTooltips.append(stack, lines));
+        ItemTooltipCallback.EVENT.register((stack, context, flag, lines) -> WeaponStatsTooltip.append(stack, lines));
         *///?} elif forge {
         /*MinecraftForge.EVENT_BUS.addListener((ItemTooltipEvent event) -> TestModTooltips.append(event.getItemStack(), event.getToolTip()));
+        MinecraftForge.EVENT_BUS.addListener((ItemTooltipEvent event) -> WeaponStatsTooltip.append(event.getItemStack(), event.getToolTip()));
         *///?} elif neoforge {
         /*NeoForge.EVENT_BUS.addListener((ItemTooltipEvent event) -> TestModTooltips.append(event.getItemStack(), event.getToolTip()));
+        NeoForge.EVENT_BUS.addListener((ItemTooltipEvent event) -> WeaponStatsTooltip.append(event.getItemStack(), event.getToolTip()));
         *///?}
     }
 }
