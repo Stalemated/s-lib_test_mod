@@ -1,10 +1,13 @@
 package com.stalemated.libtest;
 
+import com.mojang.blaze3d.platform.InputConstants;
+import com.stalemated.lib.client.ClientPlatformHelper;
 import com.stalemated.lib.client.SLibConfigScreens;
 import com.stalemated.libtest.client.TestModTooltips;
 import com.stalemated.libtest.client.WeaponStatsTooltip;
 import com.stalemated.libtest.config.TestModConfigRegistry;
 import com.stalemated.libtest.gui.screen.TestModConfigScreen;
+import net.minecraft.client.KeyMapping;
 
 //? if fabric {
 import net.fabricmc.api.ClientModInitializer;
@@ -31,6 +34,7 @@ implements ClientModInitializer
     *///?}
 
     static void init() {
+        ClientPlatformHelper.registerKeyBinding(pingKey());
         SLibConfigScreens.register(SLibTestMod.MOD_ID, () -> TestModConfigScreen::create);
         TestModTooltips.reload(TestModConfigRegistry.CONFIG.get());
         TestModConfigRegistry.CONFIG.onChange(TestModTooltips::reload);
@@ -47,5 +51,12 @@ implements ClientModInitializer
         /*NeoForge.EVENT_BUS.addListener((ItemTooltipEvent event) -> TestModTooltips.append(event.getItemStack(), event.getToolTip()));
         NeoForge.EVENT_BUS.addListener((ItemTooltipEvent event) -> WeaponStatsTooltip.append(event.getItemStack(), event.getToolTip()));
         *///?}
+    }
+
+    private static KeyMapping pingKey() {
+        //? if <1.21.9 {
+        return new KeyMapping("key.s_lib_test_mod.ping", InputConstants.UNKNOWN.getValue(), "key.categories.misc");
+        //?} else
+        //return new KeyMapping("key.s_lib_test_mod.ping", InputConstants.UNKNOWN.getValue(), KeyMapping.Category.MISC);
     }
 }

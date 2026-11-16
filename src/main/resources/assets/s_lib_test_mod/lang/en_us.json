@@ -1,5 +1,6 @@
 {
     "s_lib_test_mod.config.title": "S-Lib Test Mod Config",
+    "key.s_lib_test_mod.ping": "S-Lib Test Ping",
     "s_lib_test_mod.category.synced": "Synced Config",
     "s_lib_test_mod.category.synced.desc": "Server-authoritative configuration managed by SyncedConfigManager. OVERRIDE_CLIENT options come from the server, INFORM_SERVER options are sent to it, and NONE options stay on this client.",
     "s_lib_test_mod.category.visual_settings": "Visual Settings",
