@@ -20,6 +20,14 @@ val devMods: Map<String, () -> String> = mapOf(
     "fabric" to { "com.terraformersmc:modmenu:${sc.properties.get<String>("deps.modmenu")}" },
 )
 
+val slibTestLibraries: Map<String, () -> String> = mapOf(
+    "forge" to { "blue.endless:jankson:${sc.properties.get<String>("deps.jankson")}" },
+)
+
+val mixinExtrasAnnotations: Map<String, () -> String> = mapOf(
+    "forge" to { "io.github.llamalad7:mixinextras-common:${sc.properties.get<String>("deps.mixinextras")}" },
+)
+
 val loaderConfiguration = requireNotNull(loaderConfigurations[loader]) {
     "loader must be one of ${loaderConfigurations.keys.toList()}, got '$loader'"
 }
@@ -59,5 +67,11 @@ dependencies {
     if (withYacl) {
         add(loaderConfiguration.runtimeOnly, yacl)
         devMods[loader]?.let { add(loaderConfiguration.runtimeOnly, it()) { isTransitive = false } }
+    }
+
+    slibTestLibraries[loader]?.let { add("testRuntimeOnly", it()) }
+    mixinExtrasAnnotations[loader]?.let {
+        add("compileOnly", it())
+        add("annotationProcessor", it())
     }
 }

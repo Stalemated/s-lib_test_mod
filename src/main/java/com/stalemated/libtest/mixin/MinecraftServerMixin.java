@@ -1,5 +1,7 @@
 package com.stalemated.libtest.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.stalemated.libtest.SLibTestMod;
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,5 +14,12 @@ public abstract class MinecraftServerMixin {
     @Inject(method = "loadLevel", at = @At("HEAD"))
     private void s_lib_test_mod$logLevelLoad(CallbackInfo ci) {
         SLibTestMod.LOGGER.info("{} sees the level loading", SLibTestMod.MOD_ID);
+    }
+
+    @WrapOperation(method = "runServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/MinecraftServer;initServer()Z"))
+    private boolean s_lib_test_mod$logServerInit(MinecraftServer server, Operation<Boolean> original) {
+        boolean started = original.call(server);
+        SLibTestMod.LOGGER.info("MixinExtras wrapped initServer, started: {}", started);
+        return started;
     }
 }
