@@ -76,6 +76,7 @@ public final class TestModConfigScreen {
                                         screen -> TooltipEntryScreen.edit(screen, synced)))
                                 .option(button("add_entry", true, screen -> TooltipEntryScreen.add(screen, synced))))
                         .nestedList("tooltipEntries"))
+                .category(HandMadeCategory::create)
                 .category(local, "local", YaclCategoryBuilder::autoGenerate);
     }
 
