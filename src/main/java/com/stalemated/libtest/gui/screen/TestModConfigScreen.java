@@ -8,6 +8,7 @@ import com.stalemated.lib.config.ConfigManager;
 import com.stalemated.libtest.SLibTestMod;
 import com.stalemated.libtest.config.TestModConfigRegistry;
 import com.stalemated.libtest.config.model.TestModConfig;
+import com.stalemated.libtest.config.model.TestModConfigInherited;
 import com.stalemated.libtest.config.model.TestModConfigLocal;
 import com.stalemated.libtest.config.nested.DummyEnchantmentRules;
 import dev.isxander.yacl3.api.ButtonOption;
@@ -36,13 +37,15 @@ public final class TestModConfigScreen {
     }
 
     public static Screen create(Screen parent) {
-        return builder(parent, TestModConfigRegistry.CONFIG, TestModConfigRegistry.LOCAL, EnchantmentIds::current).generateScreen();
+        return builder(parent, TestModConfigRegistry.CONFIG, TestModConfigRegistry.LOCAL, TestModConfigRegistry.INHERITED, EnchantmentIds::current)
+                .generateScreen();
     }
 
     static YaclScreenBuilder builder(
             Screen parent,
             ConfigManager<TestModConfig> synced,
             ConfigManager<TestModConfigLocal> local,
+            ConfigManager<TestModConfigInherited> inherited,
             Supplier<Collection<String>> enchantmentIds
     ) {
         return YaclScreenBuilder.create(parent, Component.translatable("s_lib_test_mod.config.title"), SLibTestMod.MOD_ID)
@@ -77,7 +80,8 @@ public final class TestModConfigScreen {
                                 .option(button("add_entry", true, screen -> TooltipEntryScreen.add(screen, synced))))
                         .nestedList("tooltipEntries"))
                 .category(HandMadeCategory::create)
-                .category(local, "local", YaclCategoryBuilder::autoGenerate);
+                .category(local, "local", YaclCategoryBuilder::autoGenerate)
+                .category(inherited, "inherited", YaclCategoryBuilder::autoGenerate);
     }
 
     private static ButtonOption button(String key, boolean available, UnaryOperator<Screen> opened) {

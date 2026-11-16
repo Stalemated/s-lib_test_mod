@@ -7,6 +7,7 @@ import com.stalemated.lib.config.permissions.ServerConfigPermissions;
 import com.stalemated.lib.util.io.PathUtils;
 import com.stalemated.libtest.SLibTestMod;
 import com.stalemated.libtest.config.model.TestModConfig;
+import com.stalemated.libtest.config.model.TestModConfigInherited;
 import com.stalemated.libtest.config.model.TestModConfigLocal;
 
 public final class TestModConfigRegistry {
@@ -29,11 +30,16 @@ public final class TestModConfigRegistry {
                     failure.file(), failure.reason(), failure.rejectedValues()))
             .build();
 
+    public static final LocalConfigManager<TestModConfigInherited> INHERITED = SLibConfig.local(SLibTestMod.MOD_ID, TestModConfigInherited.class)
+            .configPath(PathUtils.buildPath("s-lib_test_mod", "config_inherited.json5"))
+            .build();
+
     private TestModConfigRegistry() {
     }
 
     public static void register() {
         CONFIG.register();
         LOCAL.register();
+        INHERITED.register();
     }
 }
